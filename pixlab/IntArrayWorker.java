@@ -25,7 +25,7 @@ public class IntArrayWorker
             count++;
         }
     }
-   return 0;
+   return count;
     }
   /**
    * Method to return the total 
