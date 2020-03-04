@@ -174,7 +174,64 @@ public void Grayscale()
       }
     } 
   }
+ //method to mirror vertical right to left
+ public void mirrorVerticalRightToLeft()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < width / 2; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][width - 1 - col];
+        leftPixel.setColor(rightPixel.getColor());
+      }
+    } 
+  }
+  public void mirrorHorizontal()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int height = pixels.length;
+    int width = pixels[0].length;
+    for (int row = 0; row < height/2; row++)
+    {
+      for (int col = 0; col < pixels[0].length; col++)
+      {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[height - row -1][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    } 
+  }
   
+  //method to mirror a diagonal
+   public void mirrorDiagonal()
+ {
+ Pixel[][] pixels = this.getPixels2D();
+ Pixel leftPixel = null;
+ Pixel rightPixel = null;
+
+ // calculate the max area to mirror (min of width or height)
+ int max = pixels.length;
+ if (pixels[0].length < max)
+ max = pixels[0].length;
+
+ // loop through to the left of the diagonal line (row=col)
+ for (int row = 1; row < max; row++)
+ {
+ for (int col = 0; col < row; col++)
+ {
+ leftPixel = pixels[row][col];
+ rightPixel = pixels[col][row];
+ rightPixel.setColor(leftPixel.getColor());
+ }
+ }
+ }
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
