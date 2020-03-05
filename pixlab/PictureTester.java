@@ -68,6 +68,14 @@ public class PictureTester
     caterpillar.mirrorHorizontal();
     caterpillar.explore();
   }
+   /** Method to test mirrorDiag */
+  public static void testMirrorDiagonal()
+  {
+    Picture caterpillar = new Picture("kim.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorDiagonal();
+    caterpillar.explore();
+  }
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -77,14 +85,28 @@ public class PictureTester
     temple.explore();
   }
   
+    /** Method to test mirror */
+  public static void testMirrorArms()
+  {
+    Picture temple = new Picture("kim.jpg");
+    temple.explore();
+    temple.mirrorArms();
+    temple.explore();
+  }
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture("kim.jpg");
     canvas.createCollage();
     canvas.explore();
   }
-  
+  //start from here Mycollage
+   public static void testMyCollage()
+  {
+    Picture canvas = new Picture("kim.jpg");
+    canvas.createCollage();
+    canvas.explore();
+  }
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -109,7 +131,7 @@ public class PictureTester
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
-    testMirrorTemple();
+    testCollage();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();

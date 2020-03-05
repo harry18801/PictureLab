@@ -255,7 +255,38 @@ public void Grayscale()
       }
     }
   }
-  
+  //mirror arms
+  public void mirrorArms()
+ {
+ Pixel topPixel = null;
+ Pixel botPixel = null;
+ Pixel[][] pixels = this.getPixels2D();
+
+ // loop through the rows
+ for (int row = 155; row < 191; row++)
+ {
+ // loop through the columns
+ for (int col = 98; col < 169; col++)
+ {
+ topPixel = pixels[row][col];
+ botPixel = pixels[191-row+191][col];
+ botPixel.setColor(topPixel.getColor());
+ }
+ }
+
+ // loop through the rows
+ for (int row = 155; row < 191; row++)
+ {
+ // loop through the columns
+ for (int col = 238; col < 296; col++)
+ {
+ topPixel = pixels[row][col];
+ botPixel = pixels[191-row+191][col];
+ botPixel.setColor(topPixel.getColor());
+ }
+ }
+ }
+
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -290,8 +321,8 @@ public void Grayscale()
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
+    Picture flower1 = new Picture("hiett.jpg");
+    Picture flower2 = new Picture("kim.jpg");
     this.copy(flower1,0,0);
     this.copy(flower2,100,0);
     this.copy(flower1,200,0);
